@@ -5,13 +5,9 @@ import Movies from './components/movies';
 function App() {
   return (
     <div className="App">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6">
-            <div className="main p-2">
-              <Movies />
-            </div>
-          </div>
+      <div className="main pt-5">
+        <div className="container">
+          <Movies />
         </div>
       </div>
     </div>
