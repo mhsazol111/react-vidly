@@ -1,26 +1,34 @@
-import React, { Component } from "react";
-import Like from "./common/like";
+import React, { Component } from 'react';
+import Like from './common/like';
 
 class MoviesTable extends Component {
   render() {
-    let { movies, onLike, onDelete } = this.props;
+    let { movies, onLike, onDelete, onSort } = this.props;
 
     return (
-      <table className='table'>
+      <table className="table">
         <thead>
           <tr>
-            <th scope='col'>Title</th>
-            <th scope='col'>Genre</th>
-            <th scope='col'>Stock</th>
-            <th scope='col'>Rate</th>
+            <th onClick={() => onSort('title')} scope="col">
+              Title
+            </th>
+            <th onClick={() => onSort('genre.name')} scope="col">
+              Genre
+            </th>
+            <th onClick={() => onSort('numberInStock')} scope="col">
+              Stock
+            </th>
+            <th onClick={() => onSort('dailyRentalRate')} scope="col">
+              Rate
+            </th>
             <th></th>
-            <th scope='col'>Action</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           {movies.map((movie) => (
             <tr key={movie._id}>
-              <th scope='row'>{movie.title}</th>
+              <th scope="row">{movie.title}</th>
               <td>{movie.genre.name}</td>
               <td>{movie.numberInStock}</td>
               <td>{movie.dailyRentalRate}</td>
@@ -28,10 +36,7 @@ class MoviesTable extends Component {
                 <Like liked={movie.liked} onClick={() => onLike(movie)} />
               </th>
               <td>
-                <button
-                  className='btn btn-danger btn-sm'
-                  onClick={() => onDelete(movie)}
-                >
+                <button className="btn btn-danger btn-sm" onClick={() => onDelete(movie)}>
                   Delete
                 </button>
               </td>
