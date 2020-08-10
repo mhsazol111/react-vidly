@@ -8,6 +8,8 @@ import Rentals from './components/rentals';
 import Home from './components/home';
 import NotFound from './components/404';
 import MoviesDetails from './components/movies-details';
+import Register from './components/register';
+import Login from './components/login-manual-validation';
 
 function App() {
   return (
@@ -21,8 +23,10 @@ function App() {
 
             <Route path='/customers' component={Customers} />
             <Route path='/rentals' component={Rentals} />
+            <Route path='/register' component={Register} />
+            <Route path='/login' component={Login} />
 
-            {/* <Redirect from='/' to='/movies' /> */}
+
             <Route path='/404' component={NotFound} />
             <Route path='/' exact component={Home} />
 

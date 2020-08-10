@@ -7,29 +7,29 @@ class MoviesTable extends Component {
     let { movies, onLike, onDelete, onSort } = this.props;
 
     return (
-      <table className='table'>
+      <table className="table">
         <thead>
           <tr>
-            <th onClick={() => onSort('title')} scope='col'>
+            <th onClick={() => onSort('title')} scope="col">
               Title
             </th>
-            <th onClick={() => onSort('genre.name')} scope='col'>
+            <th onClick={() => onSort('genre.name')} scope="col">
               Genre
             </th>
-            <th onClick={() => onSort('numberInStock')} scope='col'>
+            <th onClick={() => onSort('numberInStock')} scope="col">
               Stock
             </th>
-            <th onClick={() => onSort('dailyRentalRate')} scope='col'>
+            <th onClick={() => onSort('dailyRentalRate')} scope="col">
               Rate
             </th>
             <th></th>
-            <th scope='col'>Action</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           {movies.map((movie) => (
             <tr key={movie._id}>
-              <th scope='row'>
+              <th scope="row">
                 <Link
                   to={{
                     pathname: `/movies/${movie._id}`,
@@ -49,7 +49,7 @@ class MoviesTable extends Component {
               </th>
               <td>
                 <button
-                  className='btn btn-danger btn-sm'
+                  className="btn btn-danger btn-sm"
                   onClick={() => onDelete(movie)}
                 >
                   Delete

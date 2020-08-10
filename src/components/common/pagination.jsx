@@ -16,8 +16,20 @@ class Pagination extends Component {
       <nav aria-label="Page navigation example">
         <ul className="pagination">
           {pages.map((page) => (
-            <li key={page} className={page === currentPage ? 'page-item active' : 'page-item'}>
-              <a className="page-link" onClick={() => onPageChange(page)}>
+            <li
+              key={page}
+              className={
+                page === currentPage ? 'page-item active' : 'page-item'
+              }
+            >
+              <a
+                href="#next"
+                className="page-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onPageChange(page);
+                }}
+              >
                 {page}
               </a>
             </li>

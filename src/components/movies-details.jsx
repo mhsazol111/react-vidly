@@ -7,11 +7,11 @@ const MoviesDetails = ({ match, history, location }) => {
 
   return (
     <div>
-      <h1 className='text-center mb-3'>
+      <h1 className="text-center mb-3">
         Movie Name: {location.state.movie.title}
       </h1>
       <h3>Movies form {match.params.id}</h3>
-      <button type='button' className='btn btn-primary' onClick={handleSave}>
+      <button type="button" className="btn btn-primary" onClick={handleSave}>
         Save
       </button>
     </div>

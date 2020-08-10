@@ -57,7 +57,13 @@ class Movies extends Component {
 
   render() {
     const { length: moviesCount } = this.state.movies;
-    const { movies, perPage, selectedGenre, currentPage, sortColumn } = this.state;
+    const {
+      movies,
+      perPage,
+      selectedGenre,
+      currentPage,
+      sortColumn,
+    } = this.state;
 
     if (moviesCount === 0) return <h3>There is no movie found!</h3>;
 
@@ -66,7 +72,11 @@ class Movies extends Component {
         ? movies.filter((m) => m.genre._id === selectedGenre._id)
         : movies;
 
-    const sorted = _.orderBy(filteredMovies, [sortColumn.path], [sortColumn.order]);
+    const sorted = _.orderBy(
+      filteredMovies,
+      [sortColumn.path],
+      [sortColumn.order]
+    );
 
     const moviesWithPagination = paginate(sorted, perPage, currentPage);
 
