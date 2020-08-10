@@ -9,7 +9,7 @@ import Home from './components/home';
 import NotFound from './components/404';
 import MoviesDetails from './components/movies-details';
 import Register from './components/register';
-import Login from './components/login-manual-validation';
+import Login from './components/login';
 
 function App() {
   return (
