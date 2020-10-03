@@ -1,5 +1,7 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import Joi from 'joi';
+import Input from './input';
+import Button from './button';
 
 class Form extends Component {
   state = {
@@ -13,10 +15,7 @@ class Form extends Component {
       abortEarly: false,
     };
 
-    const result = Joi.object(this.schema).validate(
-      this.state.formData,
-      options
-    );
+    const result = Joi.object(this.schema).validate(this.state.formData, options);
 
     if (!result.error) return null;
 
@@ -63,6 +62,36 @@ class Form extends Component {
 
     //TODO: submit the form
     this.doSubmit();
+  };
+
+  // Render Input Element
+  renderInput = (type, name, label, placeholder) => {
+    const { formData, errors } = this.state;
+
+    return (
+      <Input
+        type={type}
+        name={name}
+        value={formData[name]}
+        error={errors[name]}
+        label={label}
+        placeholder={placeholder}
+        onChange={this.handleChange}
+      />
+    );
+  };
+
+  // Render Button Element
+  renderButton = (type, id, className, label) => {
+    return (
+      <Button
+        type={type}
+        id={id}
+        className={className}
+        label={label}
+        disabled={this.validateForm()}
+      />
+    );
   };
 }
 
